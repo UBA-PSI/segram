@@ -4,6 +4,10 @@ from datetime import datetime
 import logging
 from config import DOH_RESOLVER
 
+# This implementation uses ADB commands to control the Intra app, i.e., to set DoH resolvers.
+# For the used ADB commands, we were inspired by multiple references, e.g.:
+# Yaghmour, K. (2013). Embedded Android: Porting, Extending, and Customizing. " O'Reilly Media, Inc.".
+# https://developer.android.com/studio/command-line/adb
 
 class Intra:
 
@@ -86,4 +90,3 @@ class Intra:
         # stop the app
         self.force_stop_intra()
         logging.info(f"changed the DoH resolver to {resolver_name}")
-

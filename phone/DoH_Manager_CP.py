@@ -5,6 +5,9 @@ import subprocess
 import logging
 from config import DOH_RESOLVER
 
+# This implementation uses uiautomator to control the Intra app, i.e., to set DoH resolvers.
+# The implementation will probably only work if the language of the phone is German
+# For other languages, you have to exchange the text parameters
 
 class Intra:
 

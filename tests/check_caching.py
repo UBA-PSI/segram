@@ -33,7 +33,7 @@ def start_app(app_to_start, capture_time=20):
         sleep(capture_time)
     except subprocess.SubprocessError as start_app_err:
         print(f'Start {app_to_start} at {datetime.now().strftime("%d-%m-%Y--%H-%M-%S")} - '
-                      f'Error message: {str(start_app_err)}')
+              f'Error message: {str(start_app_err)}')
 
 
 def stop_app(app_to_stop):
@@ -41,7 +41,7 @@ def stop_app(app_to_stop):
         subprocess.run(["adb", "shell", "am force-stop", app_to_stop], check=True, stderr=False)
     except subprocess.SubprocessError as stop_app_err:
         print(f'Stop {app_to_stop} at {datetime.now().strftime("%d-%m-%Y--%H-%M-%S")} - '
-                      f'Error message: {str(stop_app_err)}')
+              f'Error message: {str(stop_app_err)}')
     sleep(1)
 
 

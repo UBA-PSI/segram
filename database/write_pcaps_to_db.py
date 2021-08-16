@@ -26,7 +26,6 @@ def get_app_id_dataset(my_session, protocol, resolver_name, application):
     app_id = 0
     for row in q:
         database_id = row.id
-        # print(database_id)
     # get the app_id based on dataset and app name
     qtwo = my_session.query(App).join(Dataset, Dataset.id == App.dataset_id).filter(application == App.name,
                                                                                     database_id == App.dataset_id)
@@ -187,9 +186,6 @@ if __name__ == '__main__':
     # write all PCAPS in all sub-directories to the database
     for pcap_dir in root:
         check_all_directories(root + pcap_dir)
-
     # Alternative: write only a single directory to the database
-    # dir = "files_28-05-2020--04-25-15"
-    # path_to_check = root + dir + "/"
     # check_directory(path_to_check)
     print("--- %s seconds ---" % (time.time() - start_time))

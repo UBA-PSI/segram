@@ -3,6 +3,11 @@ from time import sleep
 import logging
 from config import DOT_RESOLVER
 
+# This implementation uses Android's system setting to set DoT resolvers.
+# The relevant system settings are defined in the source code, see:
+# https://android.googlesource.com/platform/frameworks/libs/net/+/refs/heads/master/common/framework/com/android/net/
+# module/util/ConnectivitySettingsUtils.java#31
+
 
 class DoT_Manager:
     def __init__(self):
@@ -33,4 +38,3 @@ class DoT_Manager:
         if "private_dns_mode=hostname" in str(status.stdout) or "private_dns_mode=opportunistic" in str(status.stdout):
             return True
         sleep(0.5)
-

@@ -41,17 +41,6 @@ def count_dns_tls_packets(pcaps_dot):
         f.write(f"{len(dns_packets)} {pcaps_dot} {chr(10)}")
 
 
-def count_udp_dns_packets(pcaps_dns):
-    print("DNS starting...")
-    # filter for DNS over TLS port 853 and TLS Application data
-    dns_pkts = pyshark.FileCapture(pcaps_dns, display_filter='dns', use_json=True)
-    dns_packets = [pkt for pkt in dns_pkts]
-    dns_pkts.close()
-    pcaps_dns = pcaps_dns.split("/")[-1]
-    with open(f"./query_stats/{names}_dns_numbers.txt", "a") as f:
-        f.write(f"{len(dns_packets)} {pcaps_dns} {chr(10)}")
-
-
 def get_ips_for_resolver(resolver_name):
     ret_ips = []
     if resolver_name == "dns.google":
@@ -83,7 +72,6 @@ def check_all_directories(root_dir):
         with Pool(processes=4) as pool:
             pool.map(count_dns_https_packets, files_doh_abs)
             pool.map(count_dns_tls_packets, files_dot_abs)
-            # pool.map(count_udp_dns_packets, files_doh_abs)
 
 
 def check_directory(path):
@@ -101,7 +89,4 @@ if __name__ == '__main__':
     path_to_check = "/home/android-pcaps/" + dir + "/"
     names = path_to_check.split("/")[-2]
     check_directory(path_to_check)
-
-    # root = "/home/testfiles/android-pcaps/"
-    # check_all_directories(root)
     print("--- %s seconds ---" % (time.time() - start_time))

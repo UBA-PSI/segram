@@ -5,24 +5,30 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pickle5 as pickle
 
-def text_splitter(text):
-    return text.split(" ")
+# this file was used to measure the training time of segram
+
+
+def split_text(x):
+    return x.split(" ")
+
 
 myseed = 42
 path = "./train/"
 train_files = os.listdir(path)
 
+
 for file in train_files:
     name = file.split(".")[0]
-    with open(path+file, "rb") as f:
+    with open(path + file, "rb") as f:
         predict_df = pickle.load(f)
     print(name)
 
     # begin time when creating feature vector
     start = time.monotonic()
+
     # vectorizer and transformer
-    vectorizer = TfidfVectorizer(tokenizer=text_splitter, ngram_range=(1, 3), use_idf=False,
-                             sublinear_tf=False, norm='', smooth_idf=False)
+    vectorizer = TfidfVectorizer(tokenizer=split_text, ngram_range=(1, 3), use_idf=False,
+                                 sublinear_tf=False, norm='', smooth_idf=False)
     # feature w. timing
     X = vectorizer.fit_transform(predict_df['dns_seq'])
     y = predict_df["app_name"]

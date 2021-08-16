@@ -11,6 +11,13 @@ from config import CACHING, SAVE_DIR, APPS, SSH_HOST, CAPTURE_TIME, DOH_IMPL
 logging.basicConfig(level=logging.INFO, filename='capturing.log', filemode='a',
                     format='%(levelname)s - %(message)s')
 
+# For the used ADB commands, we were inspired by multiple references, e.g.:
+# Yaghmour, K. (2013). Embedded Android: Porting, Extending, and Customizing. " O'Reilly Media, Inc.".
+# https://developer.android.com/studio/command-line/adb
+# https://developer.android.com/studio/command-line/dumpsys
+# https://stackoverflow.com/questions/31604610
+# https://stackoverflow.com/questions/19611945/
+
 
 def is_screen_on():
     try:
@@ -133,19 +140,6 @@ def kill_tcpdump():
     logging.info("tcpdump killed...")
 
 
-def capture_udp_dns_traffic(app_list, save_dir):
-    udp_dir = save_dir + "/" + "UDP"
-    try:
-        subprocess.Popen(["ssh", SSH_HOST, "mkdir", udp_dir])
-    except subprocess.SubprocessError as dot_dir_err:
-        logging.error(
-            f'{SSH_HOST} UDP at {datetime.now().strftime("%d-%m-%Y--%H-%M-%S")} - Error message: {str(dot_dir_err)}')
-    # part where UDP starts
-    for app in app_list:
-        clear_dns_cache()
-        capture(app, udp_dir, "udp")
-
-
 def capture_doh_traffic(apps_list, save_dir):
     pkgs_doh_shuffled = apps_list
     doh_dir = save_dir + "/" + "DoH"
@@ -222,7 +216,6 @@ if __name__ == '__main__':
             packages = file.read().splitlines()
 
         disable_all_dns_before_start()
-        # capture_udp_dns_traffic(packages, directory_to_save)
         capture_doh_traffic(packages, directory_to_save)
         capture_dot_traffic(packages, directory_to_save)
         press_power_button()
