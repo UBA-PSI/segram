@@ -1,6 +1,16 @@
 ## How Private is Android's Private DNS Setting? Identifying Apps by Encrypted DNS Traffic
 
-This repository contains the source code and datasets for the paper "How Private is Android's Private DNS Setting? Identifying Apps by Encrypted DNS Traffic". Our paper will appear in the Proceedings of The 16th International Conference on Availability, Reliability and Security (ARES 2021). A preprint is available on arxiv: https://arxiv.org/abs/2106.14058
+This repository contains the source code and datasets for the paper "How Private is Android's Private DNS Setting? Identifying Apps by Encrypted DNS Traffic". Our paper will appear in the Proceedings of The 16th International Conference on Availability, Reliability and Security (ARES 2021).
+
+A preprint is available on arxiv: https://arxiv.org/abs/2106.14058
+
+The paper is now also available in the digital library of ACM (https://doi.org/10.1145/3465481.3465764).
+
+The suggested citation by ACM Ref looks as follows:
+
+```
+Michael Mühlhauser, Henning Pridöhl, and Dominik Herrmann. 2021. How Private is Android’s Private DNS Setting? Identifying Apps by Encrypted DNS Traffic. In The 16th International Conference on Availability, Reliability and Security (ARES 2021). Association for Computing Machinery, New York, NY, USA, Article 14, 1–10. DOI:https://doi.org/10.1145/3465481.3465764
+```
 
 #### The directory...
 
