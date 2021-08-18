@@ -6,10 +6,24 @@ A preprint is available on arxiv: https://arxiv.org/abs/2106.14058
 
 The paper is now also available in the digital library of ACM (https://doi.org/10.1145/3465481.3465764).
 
-The suggested citation by ACM Ref looks as follows:
+If you use our datasets or findings from the paper, we would appreciate a citation for the paper:
 
 ```
-Michael Mühlhauser, Henning Pridöhl, and Dominik Herrmann. 2021. How Private is Android’s Private DNS Setting? Identifying Apps by Encrypted DNS Traffic. In The 16th International Conference on Availability, Reliability and Security (ARES 2021). Association for Computing Machinery, New York, NY, USA, Article 14, 1–10. DOI:https://doi.org/10.1145/3465481.3465764
+@inproceedings{DBLP:conf/IEEEares/MuhlhauserPH21,
+  author    = {Michael M{\"{u}}hlhauser and
+               Henning Prid{\"{o}}hl and
+               Dominik Herrmann},
+  editor    = {Delphine Reinhardt and
+               Tilo M{\"{u}}ller},
+  title     = {How Private is Android's Private {DNS} Setting? Identifying Apps by
+               Encrypted {DNS} Traffic},
+  booktitle = {{ARES} 2021: The 16th International Conference on Availability, Reliability
+               and Security, Vienna, Austria, August 17-20, 2021},
+  pages     = {14:1--14:10},
+  publisher = {{ACM}},
+  year      = {2021},
+  biburl    = {https://dblp.org/rec/conf/IEEEares/MuhlhauserPH21.bib},
+}
 ```
 
 #### The directory...
